@@ -6,6 +6,54 @@ $granTotal = 0;
 ?>
 	<div class="col-xs-12">
 		<h1>Carrito de compra </h1>
+		<br>
+		<form method="post" action="agregarAlCarrito.php">
+			
+			<div class="row">
+			<div class="col-md-9">
+				<label for="codigo" class="form-label">Codigo de barra</label>
+				<input autocomplete="off" type="text" class="form-control" required id="codigo" name="codigo">
+			</div>
+			<div class="col-md-3">
+				<label for="cantidad" class="form-label">Cantidad</label>
+				<input autocomplete="off" type="Cantidad" class="form-control" required id="Cantidad" name="cantidad">
+			</div>
+			</div>
+			<br>
+			<button type="submit" class="btn btn-success"> Agreagar al carro</button>
+		</form>
+		<br>
+		<br>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Código</th>
+					<th>Descripción</th>
+					<th>Precio de venta</th>
+					<th>Cantidad</th>
+					<th>Total</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($_SESSION["carrito"] as $indice => $producto){ 
+						$granTotal += $producto->total;
+					?>
+				<tr>
+					<td><?php echo $producto->id ?></td>
+					<td><?php echo $producto->codigo ?></td>
+					<td><?php echo $producto->descripcion ?></td>
+					<td><?php echo $producto->precioVenta ?></td>
+					<td><?php echo $producto->cantidad ?></td>
+					<td><?php echo $producto->total ?></td>
+					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice?>">Borrar</a></td>
+				</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+
+		<h3>Total: <?php echo $granTotal; ?></h3>
 		<?php
 			if(isset($_GET["status"])){
 				if($_GET["status"] === "1"){
@@ -47,46 +95,6 @@ $granTotal = 0;
 				}
 			}
 		?>
-		<br>
-		<form method="post" action="agregarAlCarrito.php">
-			<label for="codigo">Código de barras:</label>
-			<input autocomplete="off" autofocus class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
-			<label for="cantidad">Cantidad:</label>
-			<input autocomplete="off" class="form-control" name="cantidad" required type="number" id="cantidad" placeholder="Cantidad o existencias">
-			<br>
-			<button type="submit" class="btn btn-success"> Agreagar al carro</button>
-		</form>
-		<br><br>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Código</th>
-					<th>Descripción</th>
-					<th>Precio de venta</th>
-					<th>Cantidad</th>
-					<th>Total</th>
-					<th>Quitar</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($_SESSION["carrito"] as $indice => $producto){ 
-						$granTotal += $producto->total;
-					?>
-				<tr>
-					<td><?php echo $producto->id ?></td>
-					<td><?php echo $producto->codigo ?></td>
-					<td><?php echo $producto->descripcion ?></td>
-					<td><?php echo $producto->precioVenta ?></td>
-					<td><?php echo $producto->cantidad ?></td>
-					<td><?php echo $producto->total ?></td>
-					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice?>"><i class="fa fa-trash"></i></a></td>
-				</tr>
-				<?php } ?>
-			</tbody>
-		</table>
-
-		<h3>Total: <?php echo $granTotal; ?></h3>
 		<form action="./terminarVenta.php" method="POST">
 			<input name="total" type="hidden" value="<?php echo $granTotal;?>">
 			<button type="submit" class="btn btn-success">Terminar venta</button>

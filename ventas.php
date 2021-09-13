@@ -11,7 +11,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 			<a class="btn btn-success" href="./vender.php">Nueva <i class="fa fa-plus"></i></a>
 		</div>
 		<br>
-		<table class="table table-bordered">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Número</th>
@@ -19,7 +19,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					<th>Fecha</th>
 					<th>Productos vendidos</th>
 					<th>Total</th>
-					<th>Eliminar</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,7 +34,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         $sentencia2->execute([$venta->id]);
                         $producto2 = $sentencia2->fetchAll(PDO::FETCH_OBJ);
                     ?>
-                        <table class="table table-bordered">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -56,7 +56,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         
                     </td>
                     <td><?php echo $venta->total ?></td>
-                     <td><a class="btn btn-danger" href="<?php echo "eliminarVenta.php?id=" . $venta->id?>"><i class="fa fa-trash"></i></a></td>
+                     <td><a class="btn btn-danger" href="<?php echo "eliminarVenta.php?id=" . $venta->id?>">Eliminar</a></td>
                 </tr>
             <?php } ?>
 			</tbody>

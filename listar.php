@@ -11,7 +11,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 			<a class="btn btn-success" href="./formulario.php">Nuevo <i class="fa fa-plus"></i></a>
 		</div>
 		<br>
-		<table class="table table-bordered">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -34,7 +34,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					<td><?php echo $producto->precioCompra ?></td>
 					<td><?php echo $producto->precioVenta ?></td>
 					<td><?php echo $producto->existencias ?></td>
-					<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $producto->id?>"><i class="fa fa-edit"></i></a></td>
+					<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $producto->id?>">Editar</a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
