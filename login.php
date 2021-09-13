@@ -40,11 +40,15 @@
     <h1>Login</h1>
 
     <form action="login.php" method="POST" id="formulario_login">
+      <div class="mb-2">
       <input name="usuario" type="text" placeholder="User" id="usuario">
+      </div>
+      <div class="mb-2">
       <input name="password" type="password" placeholder="Password" id="password">
+      </div>
+      <div id = 'error'></div>
       <input type="submit" value="login">
     </form>
-    <div id = 'error'></div>
     <script src="js/funciones.js"></script>
   </body>
 </html>
