@@ -29,7 +29,7 @@
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-  </head>
+    </head>
   <body>
     
 
@@ -37,6 +37,14 @@
       <p> <?= $message ?></p>
     <?php endif; ?>
 
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container ">
+        <a class="navbar-brand" href="#">
+          <img src="img/descarga.jpg" class="rounded mx-auto d-block">
+        </a>
+      </div>
+    </nav>
     <h1>Login</h1>
 
     <form action="login.php" method="POST" id="formulario_login">
@@ -44,7 +52,7 @@
       <input name="usuario" type="text" placeholder="User" id="usuario">
       </div>
       <div class="mb-2">
-      <input name="password" type="password" placeholder="Password" id="password">
+      <input name="password" type="password" placeholder="Contraseña" id="password">
       </div>
       <div id = 'error'></div>
       <input type="submit" value="login">
