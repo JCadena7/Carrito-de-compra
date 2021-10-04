@@ -5,7 +5,7 @@
   require 'db/database.php';
 
   if (!empty($_POST['usuario']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT  id, usuario, password FROM usuarios WHERE usuario = :usuario');
+    $records = $conn->prepare('SELECT  id, usuario, password, type FROM usuarios WHERE usuario = :usuario');
     $records->bindParam(':usuario', $_POST['usuario']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -13,7 +13,11 @@
     $message = '';
      if(strcmp($_POST['password'], $results['password'])==0){
       $_SESSION['user_id'] = $results['id'];
-      header("Location: ventas.php");
+      if($results['type']==1 ){
+        header("Location: vender.php");
+      }else{
+        header("Location: user.php");
+      }
    
     } else {
       $message = 'Sorry, those credentials do not match';

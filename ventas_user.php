@@ -1,7 +1,10 @@
-<?php include_once "header.php" ?>
+<?php include_once "header_user.php" ?>
 <?php
+session_start();
 include_once "db/database.php";
-$sentencia = $conn->query("Select ventas.id, usuarios.usuario,ventas.fecha,ventas.total from ventas,usuarios where ventas.id_user=usuarios.id;");
+$id_usuario = $_SESSION["user_id"];
+$sentencia = $conn->prepare("Select ventas.id, usuarios.usuario,ventas.fecha,ventas.total from ventas,usuarios where ventas.id_user = ? AND ventas.id_user=usuarios.id;");
+$sentencia->execute([$id_usuario]);
 $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 

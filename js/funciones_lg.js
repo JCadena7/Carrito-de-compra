@@ -30,7 +30,7 @@ const validarFormulario = (e) => {
 		break;
 		case "precioVenta" :
 			if(!expresiones.codigo.test(e.target.value)){
-                error_precioVenta.innerHTML='precio vento no valido';
+                error_precioVenta.innerHTML='precio venta no valido';
             }
 		break;
 		case "precioCompra":
@@ -49,3 +49,40 @@ inputs2.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
 });
+
+
+function alertaSubmit(){
+	var respuesta = confirm('Esta seguro de modificar el producto?');
+	if(respuesta == true ){
+		console.log('true submit si');
+		return true;
+	}else{
+		console.log('false')
+		return false;
+	}
+}
+function confirmarDelete(){
+	var respuesta = confirm('Esta seguro de eliminar la venta?');
+	if(respuesta == true ){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function confirmarCancelar(){
+	var respuesta = confirm('Esta seguro que desea cancelar la venta?');
+	if(respuesta == true ){
+		return true;
+	}else{
+		return false;
+	}
+}
+function confirmBorrar(){
+	var respuesta = confirm('Se borrara el producto del carrito, Esta seguro?');
+	if(respuesta == true ){
+		return true;
+	}else{
+		return false;
+	}
+}

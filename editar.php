@@ -14,7 +14,7 @@ if($producto === FALSE){
 <?php include_once "header.php" ?>
 	<div class="col-xs-12">
 		<h1>Editar producto con el ID <?php echo $producto->id; ?></h1>
-		<form method="post" action="guardarDatosEditados.php">
+		<form method="post" action="guardarDatosEditados.php" onSubmit="return alertaSubmit();" name="formularioUpdate">
 			<input type="hidden" name="id" value="<?php echo $producto->id; ?>">
 	
 			<label for="codigo">Código de barras:</label>
@@ -31,8 +31,9 @@ if($producto === FALSE){
 
 			<label for="existencia">Existencia:</label>
 			<input value="<?php echo $producto->existencia ?>" class="form-control" name="existencia" required type="number" id="existencia" placeholder="Cantidad o existencia">
-			<br><br><input class="btn btn-info" type="submit" value="Guardar">
-			<a class="btn btn-warning" href="./listar.php">Cancelar</a>
+			<br><br>
+			<input class="btn btn-info" type="submit"  value="Guardar">
+			<a class="btn btn-warning" href="./listar.php" >Cancelar</a>
 		</form>
 	</div>
 <?php include_once "footer.php" ?>

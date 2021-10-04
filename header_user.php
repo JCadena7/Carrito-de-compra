@@ -14,9 +14,9 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="./listar.php">Productos</a></li>
-					<li class="nav-item"><a class="nav-link" href="./vender.php">Carrito</a></li>
-					<li class="nav-item"><a class="nav-link" href="./ventas.php">Ventas</a></li>
+					<li class="nav-item"><a class="nav-link" href="./user.php">Lista de productos</a></li>
+					<li class="nav-item"><a class="nav-link" href="./vender_user.php">Carrito</a></li>
+					<li class="nav-item"><a class="nav-link" href="./ventas_user.php">Mis compras</a></li>
 				</ul>
 			</div>
 		</div>

@@ -11,12 +11,13 @@ $precioVenta = $_POST["precioVenta"];
 $precioCompra = $_POST["precioCompra"];
 $existencias = $_POST["existencias"];
 
-$sentencia1 = $conn->prepare("SELECT * FROM productos WHERE codigo =?;");
-$resultado1 = $sentencia1->execute([$codigo]);
-if($resultado1 === TRUE){
-	echo "El codigo ya existe";
-	exit;
-}
+#$sentencia1 = $conn->prepare("SELECT * FROM productos WHERE codigo = ?;");
+#$resultado1 = $sentencia1->execute([$codigo]);
+#if($resultado1 === TRUE){
+#	echo "El codigo ya existe";
+#	echo $codigo;
+#	exit;
+#}
 
 
 $sentencia = $conn->prepare("INSERT INTO productos(codigo, descripcion, precioVenta, precioCompra, existencias) VALUES (?, ?, ?, ?, ?);");

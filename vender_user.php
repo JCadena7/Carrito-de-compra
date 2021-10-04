@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once "header.php";
+include_once "header_user.php";
 if(!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
 $granTotal = 0;
 ?>
