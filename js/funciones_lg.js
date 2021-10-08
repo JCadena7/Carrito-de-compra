@@ -52,7 +52,7 @@ inputs2.forEach((input) => {
 
 
 function alertaSubmit(){
-	var respuesta = confirm('Esta seguro de modificar el producto?');
+	var respuesta = confirm('¿Esta seguro de modificar el producto?');
 	if(respuesta == true ){
 		console.log('true submit si');
 		return true;
@@ -62,7 +62,7 @@ function alertaSubmit(){
 	}
 }
 function confirmarDelete(){
-	var respuesta = confirm('Esta seguro de eliminar la venta?');
+	var respuesta = confirm('¿Esta seguro de eliminar la venta?');
 	if(respuesta == true ){
 		return true;
 	}else{
@@ -71,7 +71,7 @@ function confirmarDelete(){
 }
 
 function confirmarCancelar(){
-	var respuesta = confirm('Esta seguro que desea cancelar la venta?');
+	var respuesta = confirm('¿Esta seguro que desea cancelar la venta?');
 	if(respuesta == true ){
 		return true;
 	}else{
@@ -79,7 +79,7 @@ function confirmarCancelar(){
 	}
 }
 function confirmBorrar(){
-	var respuesta = confirm('Se borrara el producto del carrito, Esta seguro?');
+	var respuesta = confirm('Se borrara el producto del carrito, ¿Esta seguro?');
 	if(respuesta == true ){
 		return true;
 	}else{
