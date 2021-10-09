@@ -1,4 +1,5 @@
 <?php
+//No funciona
 $pass = "ramirez2309";
 $user = "admin";
 $db = "ventas";
